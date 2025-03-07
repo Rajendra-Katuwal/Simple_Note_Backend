@@ -31,9 +31,11 @@ INSTALLED_APPS = [
     # Third party apps are registered here
     'rest_framework',
     'rest_framework.authtoken',
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -102,6 +104,11 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny',  # Allow anyone to register
     ],
 }
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # React development server
+    "http://localhost:5173",  # React development server
+]
 
 
 
